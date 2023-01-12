@@ -39,3 +39,5 @@ function removeElement(nums: number[], val: number): number {
 let nums = [0,1,2,2,3,0,4,2];
 let val = 2;
 console.log(removeElement(nums,val));
+
+export {}

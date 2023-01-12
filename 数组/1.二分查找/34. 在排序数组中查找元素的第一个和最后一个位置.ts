@@ -56,3 +56,6 @@ return  leftBorder;
 let nums:number[] = [5,7,7,8,8,10];
 let target:number = 8;
 console.log(searchRange(nums,target));
+
+
+export {}

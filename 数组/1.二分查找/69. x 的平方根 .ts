@@ -32,3 +32,6 @@ function mySqrt(x: number): number {
 
 let x:number = 0;
 console.log(mySqrt(x));
+
+
+export {}
