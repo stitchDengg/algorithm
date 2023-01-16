@@ -24,13 +24,12 @@ function mySqrt(x: number): number {
     }else{
       return mid;
     }
-    
   }
   return right;
 };
 
 
-let x:number = 0;
+let x:number = 5;
 console.log(mySqrt(x));
 
 
