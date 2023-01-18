@@ -5,7 +5,7 @@
 
 */
 // 1.暴力解法
-function minSubArrayLen(target: number, nums: number[]): number {
+/* function minSubArrayLen(target: number, nums: number[]): number {
   let res:number = nums.length;
   let temp:number = 0;
   for(let i:number = 0;i < nums.length;i ++){
@@ -23,6 +23,23 @@ function minSubArrayLen(target: number, nums: number[]): number {
     }
   }
   return res;
+}; */
+
+// 2.滑动窗口法
+function minSubArrayLen(target: number, nums: number[]): number {
+  let res:number = Number.MAX_VALUE;   //结果
+  let sum:number = 0;   //表示窗口元素的和
+  let i:number = 0;   //表示窗口起始位置
+  let len:number = 0; //初始化窗口长度
+  for(let j:number = 0;j < nums.length;j ++){
+    sum += nums[j];
+    while(sum >= target){
+      len = j - i + 1;
+      res = res < len ? res : len;
+      sum -= nums[i ++];
+    }
+  }
+  return res == Number.MAX_VALUE ? 0 : res;
 };
 
 console.log(minSubArrayLen(4,[1,4,4]));
