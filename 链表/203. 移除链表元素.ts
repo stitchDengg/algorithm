@@ -44,6 +44,7 @@ class ListNode {
 
 //头节点版本（虚拟节点）
 function removeElements(head: ListNode | null, val: number): ListNode | null {
+  //定义一个虚拟头节点
   let vNode = new ListNode(0,head);
   //初始化节点
   let curNode:ListNode | null = vNode.next;
@@ -60,3 +61,5 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
   }
   return vNode.next;
 };
+
+export default {};
