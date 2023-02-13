@@ -10,17 +10,35 @@ class ListNode{
   }
 }
 
-function reverseList(head: ListNode | null): ListNode | null {
+
+// 1.双指针法
+/* function reverseList(head: ListNode | null): ListNode | null {
   let temp:ListNode | null;
-  // 初始化前置节点
-  let preNode:ListNode | null = null;
   let curNode = head;
+  let node:ListNode | null = null;
   while(curNode){
     temp = curNode.next;
-    curNode.next = preNode;
-    preNode = curNode;
+    curNode.next = node;
+    node = curNode;
     curNode = temp;
   }
-  return preNode;
-};
+  return node;
+}; */
 
+// 2.
+
+function reverseList(head: ListNode | null): ListNode | null{
+  let preNode:ListNode| null = null;
+  let curNode:ListNode| null = head;
+  return reverse(preNode,curNode)
+}
+
+function reverse(preNode:ListNode | null,curNode:ListNode | null):ListNode{
+  if(curNode == null){
+    return <ListNode>preNode;
+  }else{
+    let temp:ListNode | null = curNode.next;
+    curNode.next = preNode;
+    return reverse(curNode,temp);
+  }
+}
