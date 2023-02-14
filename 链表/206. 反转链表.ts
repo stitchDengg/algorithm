@@ -30,7 +30,7 @@ class ListNode{
 function reverseList(head: ListNode | null): ListNode | null{
   let preNode:ListNode| null = null;
   let curNode:ListNode| null = head;
-  return reverse(preNode,curNode)
+  return reverse(preNode,curNode);
 }
 
 function reverse(preNode:ListNode | null,curNode:ListNode | null):ListNode{
