@@ -26,18 +26,15 @@ class ListNode{
 }; */
 
 // 2.
-
-function reverseList(head: ListNode | null): ListNode | null{
-  let preNode:ListNode| null = null;
-  let curNode:ListNode| null = head;
-  return reverse(preNode,curNode);
+function reverseList(head:ListNode | null):ListNode | null{
+  return reverse(null,head);
 }
 
-function reverse(preNode:ListNode | null,curNode:ListNode | null):ListNode{
+function reverse(preNode:null | ListNode,curNode:null | ListNode):ListNode | null{
   if(curNode == null){
-    return <ListNode>preNode;
+    return preNode;
   }else{
-    let temp:ListNode | null = curNode.next;
+    let temp:null | ListNode = curNode.next;
     curNode.next = preNode;
     return reverse(curNode,temp);
   }
