@@ -1,15 +1,6 @@
 /* 
 给你单链表的头节点 head ，请你反转链表，并返回反转后的链表。
 */
-class ListNode{
-  next:ListNode | null;
-  val:number;
-  constructor(next?:ListNode,val?:number){
-    this.next = (next == undefined ? null : next);
-    this.val = (val == undefined ? 0 : val)
-  }
-}
-
 
 // 1.双指针法
 /* function reverseList(head: ListNode | null): ListNode | null {
@@ -25,7 +16,7 @@ class ListNode{
   return node;
 }; */
 
-// 2.
+// 2.递归法
 function reverseList(head:ListNode | null):ListNode | null{
   return reverse(null,head);
 }

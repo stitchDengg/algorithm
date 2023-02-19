@@ -61,5 +61,3 @@ function removeElements(head: ListNode | null, val: number): ListNode | null {
   }
   return vNode.next;
 };
-
-export default {};
