@@ -9,8 +9,17 @@
 不允许修改 链表。
 */
 
+class ListNode{
+  val:number;
+  next:ListNode | null;
+  constructor(val?:number,next?:ListNode){
+    this.val = (val == undefined ? 0 : val);
+    this.next = (next == undefined ? null : next);
+  }
+}
+
 // 纯暴力
-function detectCycle(head: ListNode | null): ListNode | null {
+/* function detectCycle(head: ListNode | null): ListNode | null {
   let arr:ListNode [] = [];
   let curNode:listNode | null = head;
   while(curNode){
@@ -22,7 +31,40 @@ function detectCycle(head: ListNode | null): ListNode | null {
   }
   return null;
 };
+ */
 
 
+// 哈希表法
+/* function detectCycle(head: ListNode | null): ListNode | null {
+  if(head == null) return null;
+  let set:Set<ListNode> = new Set;
+  let cur:listNode | null = head;
+  while(cur){
+    if(set.has(cur)) return cur;
+    set.add(cur);
+    cur = cur.next;
+  }
+  return null;
+};
+ */
+
+// 快慢指针法
+function detectCycle(head: ListNode | null): ListNode | null {
+  let slowNode: ListNode | null = head,
+      fastNode: ListNode | null = head;
+  while (fastNode !== null && fastNode.next !== null) {
+      slowNode = slowNode!.next;
+      fastNode = fastNode.next.next;
+      if (slowNode === fastNode) {
+          slowNode = head;
+          while (slowNode !== fastNode) {
+              slowNode = slowNode!.next;
+              fastNode = fastNode!.next;
+          }
+          return slowNode;
+      }
+  }
+  return null;
+};
 
 
