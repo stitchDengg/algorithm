@@ -9,14 +9,14 @@
 不允许修改 链表。
 */
 
-class ListNode{
+/* class ListNode{
   val:number;
   next:ListNode | null;
   constructor(val?:number,next?:ListNode){
     this.val = (val == undefined ? 0 : val);
     this.next = (next == undefined ? null : next);
   }
-}
+} */
 
 // 纯暴力
 /* function detectCycle(head: ListNode | null): ListNode | null {
@@ -38,7 +38,7 @@ class ListNode{
 /* function detectCycle(head: ListNode | null): ListNode | null {
   if(head == null) return null;
   let set:Set<ListNode> = new Set;
-  let cur:listNode | null = head;
+  let cur:ListNode | null = head;
   while(cur){
     if(set.has(cur)) return cur;
     set.add(cur);
@@ -49,20 +49,22 @@ class ListNode{
  */
 
 // 快慢指针法
+// 快指针一次走两步，慢指针一次走一步，当相遇的时候，从slow到链表相交点的距离等于从相遇点到相交点的距离
 function detectCycle(head: ListNode | null): ListNode | null {
-  let slowNode: ListNode | null = head,
-      fastNode: ListNode | null = head;
-  while (fastNode !== null && fastNode.next !== null) {
-      slowNode = slowNode!.next;
-      fastNode = fastNode.next.next;
-      if (slowNode === fastNode) {
-          slowNode = head;
-          while (slowNode !== fastNode) {
-              slowNode = slowNode!.next;
-              fastNode = fastNode!.next;
-          }
-          return slowNode;
+  let slow: ListNode | null = head,
+      fast: ListNode | null = head;
+
+  while (fast != null && fast.next != null) {
+    slow = slow!.next;
+    fast = fast.next.next;
+    if (slow == fast) {
+      slow = head;
+      while (slow != fast) {
+        slow = slow!.next;
+        fast = fast!.next;
       }
+      return slow;
+    }
   }
   return null;
 };
