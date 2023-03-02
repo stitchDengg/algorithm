@@ -9,7 +9,6 @@ function threeSum(nums: number[]): number[][] {
   let resArr:Array<number>[] = [];
   let sortArr:number[] = nums.sort((a,b) => a - b);
   let i:number = 0;
-  console.log(sortArr);
   for(i;i < sortArr.length;i ++){
     let left:number = i + 1;
     let right:number = nums.length - 1;
