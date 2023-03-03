@@ -31,7 +31,7 @@ function fourSum(nums: number[], target: number): number[][] {
           // 继续循环来查找其他的可能性
           left ++;
           right --;
-          // 去重复数据
+          // 去重 数据
           while(sortArr[left] == sortArr[left - 1] && left < right){
             left ++;
           }

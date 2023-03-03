@@ -28,6 +28,7 @@ function threeSum(nums: number[]): number[][] {
         //还需要继续找出其他的可能性
         left ++;
         right --;
+        // 去重
         while(sortArr[left] == sortArr[left - 1]){
           left ++;
         }
