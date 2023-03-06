@@ -55,9 +55,7 @@ function reverseWords(s: string): string {
       if (str[i] != " ") {
         // 手动添加空格
         if (slow != 0){
-          console.log(str);
-          str[slow] = ' ';
-          slow ++;
+          str[slow ++] = ' ';
         }
         while (i < str.length && str[i] != " ") {
           str[slow ++] = str[i ++];
@@ -82,6 +80,8 @@ function reverseWords(s: string): string {
   removeExtraSpace(resArr);
   // 反转整个字符串
   reverseWord(resArr, 0, resArr.length - 1);
+  
+   //反转每个单词
   let start: number = 0,
     end: number = 0;
   let size:number = resArr.length;
@@ -93,7 +93,6 @@ function reverseWords(s: string): string {
     reverseWord(resArr,start,end - 1);
     start = end + 1;
   }
-  //反转每个单词
 
   return resArr.join("");
 }

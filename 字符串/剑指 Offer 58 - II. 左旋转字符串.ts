@@ -30,7 +30,6 @@ function reverseLeftWords(s: string, n: number): string {
   }
   let str: string[] = Array.from(s);
   reverszeWords(str, 0, n - 1);
-  console.log(str, 1);
   reverszeWords(str, n, str.length - 1);
   reverszeWords(str, 0, str.length - 1);
   return str.join("");
