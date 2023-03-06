@@ -50,3 +50,4 @@ class MyQueue {
     }
   }
 }
+console.log(1);
