@@ -43,48 +43,41 @@
 /*代码随想录方法 */
 function maxSlidingWindow(nums: number[], k: number): number[] {
   class monoQueue{
-    private queue:number[];
+    private helpQueue:number [];
     constructor(){
-      this.queue = [];
+      this.helpQueue = [];
     }
-
+    public getTop():number{
+      return this.helpQueue[0];
+    }
     public enQueue(value:number):void{
-      let back:number = this.queue[this.queue.length - 1];
+      let back:number = this.helpQueue[this.helpQueue.length - 1];
       while(back != undefined && back < value){
-        this.queue.pop();
-        back =  this.queue[this.queue.length - 1];
+        this.helpQueue.pop();
+        back = this.helpQueue[this.helpQueue.length - 1];
       }
-      this.queue.push(value);
+      this.helpQueue.push(value);
     }
 
-    // 当窗口不包括队列的值的时候，就需要去出队列
     public deQueue(value:number):void{
-      let top:number = this.top();
-      if(top === value && top != undefined){
-        this.queue.shift();
+      if(value === this.getTop()){
+        this.helpQueue.shift();
       }
     }
 
-    public top():number{
-      return this.queue[0];
-    }
   }
-
-
+  let queue:monoQueue = new monoQueue();
+  let i:number = 0;
+  let j:number = 0;
   let resArr:number [] = [];
-  let helpQueue:monoQueue = new monoQueue();
-  let i:number = 0,
-      j:number = 0;
   while(j < k){
-    helpQueue.enQueue(nums[j ++]);
+    queue.enQueue(nums[j ++]);
   }
-  resArr.push(helpQueue.top());
-  console.log(resArr,1);
+  resArr.push(queue.getTop());
   while(j < nums.length){
-    helpQueue.enQueue(nums[j]);
-    helpQueue.deQueue(nums[i]);
-    resArr.push(helpQueue.top());
-    console.log(resArr);
+    queue.enQueue(nums[j]);
+    queue.deQueue(nums[i]);
+    resArr.push(queue.getTop());
     i ++;
     j ++;
   }
