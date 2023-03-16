@@ -14,7 +14,7 @@ struct Node {
 初始状态下，所有 next 指针都被设置为 NULL。
 */
 
-class Node {
+export default class Node {
     val: number
     left: Node | null
     right: Node | null

@@ -11,7 +11,7 @@ function largestValues(root: TreeNode | null): number[] {
   if(root == null) return resArr;
   helpQueue.push(root);
   while(helpQueue.length){
-    let max = 0;
+    let max = -Number.MAX_VALUE;
     for(let i = 0,size = helpQueue.length;i < size; i ++){
       let node:TreeNode = helpQueue.shift()!;
       if(node.val > max) max =node.val; 
