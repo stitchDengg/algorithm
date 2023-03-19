@@ -36,7 +36,7 @@ function isSymmetric(root: TreeNode | null): boolean {
     if(!leftNode && !rightNode){
       continue;
     }
-     //如果是一方为null  或者值不想等
+     //如果是一方为null  或者值不相等
     if(!leftNode || !rightNode || (leftNode.val != rightNode.val)){
       return false;
     }
