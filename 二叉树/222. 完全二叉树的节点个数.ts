@@ -8,7 +8,7 @@
 若最底层为第 h 层，则该层包含 1~ 2h 个节点。
 */
 
-import TreeNode from "./144. 二叉树的前序遍历";
+import TreeNode from "./二叉树遍历/144. 二叉树的前序遍历";
 
 // 按照普通二叉树递归法
 /* function countNodes(root: TreeNode | null): number {

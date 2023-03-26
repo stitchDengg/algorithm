@@ -10,7 +10,7 @@
 
 function twoSum(nums: number[], target: number): number[] {
   // 记录访问过的数字，其中key存值，value存index
-  let helpMap = new Map<number,number>();
+  let helpMap:Map<number,number> = new Map();
   let resIndex:number | undefined = -1;
   let resArr:number[]  = [];
   nums.forEach((item,index) => {

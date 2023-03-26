@@ -21,7 +21,7 @@ import TreeNode from "./二叉树遍历/144. 二叉树的前序遍历";
 }; */
 
 
-// 迭代法
+// 迭代法（层次遍历)
 function minDepth(root: TreeNode | null): number {
   let helpQueue:TreeNode[] = [];
   if(!root) return 0;
