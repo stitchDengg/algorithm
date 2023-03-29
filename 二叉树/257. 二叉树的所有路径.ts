@@ -49,7 +49,7 @@ import TreeNode from "./二叉树遍历/144. 二叉树的前序遍历";
 
 
 //2.精简版
-function binaryTreePaths(root: TreeNode | null): string[] {
+/* function binaryTreePaths(root: TreeNode | null): string[] {
 
   function travesal(root:TreeNode,path:string,res:string[]):void{
     path += root.val.toString();
@@ -63,4 +63,33 @@ function binaryTreePaths(root: TreeNode | null): string[] {
   if(!root) return res;
   travesal(root,'',res);
   return res;
-};  
+};   */
+
+
+//3.迭代法
+function binaryTreePaths(root: TreeNode | null): string[] {
+  let helpStack:TreeNode [] = [];
+  let pathArr:string[] = [];
+  let resArr:string[] = [];
+  if(!root) return resArr;
+  helpStack.push(root);
+  pathArr.push(String(root.val))
+  while(helpStack.length){
+    let tempNode:TreeNode = helpStack.pop()!;
+    let path = pathArr.pop()!;
+    if(!tempNode.left && !tempNode.right){
+      resArr.push(path);
+    }
+    //右
+    if(tempNode.right){
+      helpStack.push(tempNode.right);
+      pathArr.push(path + `->${String(tempNode.right.val)}`)
+    }
+    //左
+    if(tempNode.left){
+      helpStack.push(tempNode.left);
+      pathArr.push(path + `->${String(tempNode.left.val)}`)
+    }
+  }
+  return resArr;
+};   
