@@ -28,4 +28,3 @@ function constructMaximumBinaryTree(nums: number[]): TreeNode | null {
   node.right = constructMaximumBinaryTree(rightArr);
   return node;
 };
-
