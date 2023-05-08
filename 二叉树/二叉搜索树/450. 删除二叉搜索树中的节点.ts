@@ -1,3 +1,13 @@
+/*
+ * @Author: “邓浩” “1051766345@qq.com”
+ * @Date: 2023-04-24 22:28:37
+ * @LastEditors: “邓浩” “1051766345@qq.com”
+ * @LastEditTime: 2023-04-26 23:02:34
+ * @FilePath: /algorithm/二叉树/二叉搜索树/450. 删除二叉搜索树中的节点.ts
+ * @Description: 
+ * 
+ * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved. 
+ */
 /* 
 给定一个二叉搜索树的根节点 root 和一个值 key，删除二叉搜索树中的 key 对应的节点，
 并保证二叉搜索树的性质不变。返回二叉搜索树（有可能被更新）的根节点的引用。
@@ -49,6 +59,7 @@ function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
     curNode.left = node.left;
     return node.right;
   }
+  
   if (!root) return root;
   let cur: TreeNode | null = root;
   let parent: TreeNode | null = null;
@@ -64,6 +75,7 @@ function deleteNode(root: TreeNode | null, key: number): TreeNode | null {
     }
   }
   if (cur === null) return root;
+  // 如果刚好是头节点
   if (parent === null) return removeNode(cur);
   if (key > parent.val) {
     parent.right = removeNode(cur);
